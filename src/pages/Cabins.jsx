@@ -1,28 +1,33 @@
-import { useEffect, useState } from "react";
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
-import { getCabins } from "../services/apiCabins";
 import CabinTable from "../features/cabins/CabinTable";
 import CreateCabinForm from "../features/cabins/CreateCabinForm";
+import Modal from "../ui/Modal";
+import CabinTableOperations from "../features/cabins/CabinTableOperations";
 
 function Cabins() {
-  const [showForm, setShowForm] = useState(false);
-
   return (
     <>
       <Row type='horizontal'>
         <Heading as='h1'>All cabins</Heading>
-        <p>TEST</p>
+        <CabinTableOperations />
       </Row>
 
       <Row>
         <CabinTable />
 
-        <button onClick={() => setShowForm((show) => !show)}>
-          Add new cabin
-        </button>
-
-        {showForm && <CreateCabinForm />}
+        <Modal>
+          <Modal.Open
+            renderItem={(open) => <button onClick={open}>Add new cabin</button>}
+            opens='create'
+          />
+          <Modal.Window
+            renderItem={(closeModal) => (
+              <CreateCabinForm onCloseModal={closeModal} />
+            )}
+            name='create'
+          />
+        </Modal>
       </Row>
     </>
   );
