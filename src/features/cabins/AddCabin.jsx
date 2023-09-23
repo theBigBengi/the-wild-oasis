@@ -1,17 +1,23 @@
 import Button from "../../ui/Button";
-import CreateCabinForm from "./CreateCabinForm";
 import Modal from "../../ui/Modal";
+import CreateCabinForm from "./CreateCabinForm";
 
 function AddCabin() {
   return (
     <div>
       <Modal>
-        <Modal.Open opens="cabin-form">
-          <Button>Add new cabin</Button>
-        </Modal.Open>
-        <Modal.Window name="cabin-form">
-          <CreateCabinForm />
-        </Modal.Window>
+        <Modal.Open
+          opens='cabin-form'
+          renderItem={(openModal) => (
+            <Button onClick={openModal}>Add new cabin</Button>
+          )}
+        />
+        <Modal.Window
+          name='cabin-form'
+          renderItem={(closeModal) => (
+            <CreateCabinForm onCloseModal={closeModal} />
+          )}
+        ></Modal.Window>
       </Modal>
     </div>
   );

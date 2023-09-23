@@ -1,9 +1,10 @@
 import Heading from "../ui/Heading";
 import Row from "../ui/Row";
-import CabinTable from "../features/cabins/CabinTable";
-import CreateCabinForm from "../features/cabins/CreateCabinForm";
 import Modal from "../ui/Modal";
+
+import CabinTable from "../features/cabins/CabinTable";
 import CabinTableOperations from "../features/cabins/CabinTableOperations";
+import AddCabin from "../features/cabins/AddCabin";
 
 function Cabins() {
   return (
@@ -15,19 +16,7 @@ function Cabins() {
 
       <Row>
         <CabinTable />
-
-        <Modal>
-          <Modal.Open
-            renderItem={(open) => <button onClick={open}>Add new cabin</button>}
-            opens='create'
-          />
-          <Modal.Window
-            renderItem={(closeModal) => (
-              <CreateCabinForm onCloseModal={closeModal} />
-            )}
-            name='create'
-          />
-        </Modal>
+        <AddCabin />
       </Row>
     </>
   );

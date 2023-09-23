@@ -1,12 +1,15 @@
 import SortBy from "../../ui/SortBy";
 import Filter from "../../ui/Filter";
 import TableOperations from "../../ui/TableOperations";
+import Search from "../../ui/Search";
 
 function BookingTableOperations() {
   return (
     <TableOperations>
+      <Search filterField='guest' />
+
       <Filter
-        filterField="status"
+        filterField='status'
         options={[
           { value: "all", label: "All" },
           { value: "checked-out", label: "Checked out" },
