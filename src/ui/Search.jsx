@@ -1,6 +1,13 @@
 import { useSearchParams } from "react-router-dom";
+import styled from "styled-components";
 
 import Input from "./Input";
+
+const StyledInput = styled(Input)`
+  font-size: 1.4rem;
+  padding: 0.2rem 1.2rem;
+  font-weight: 500;
+`;
 
 export default function Search({ filterField, ...props }) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -18,5 +25,5 @@ export default function Search({ filterField, ...props }) {
     setSearchParams(searchParams);
   }
 
-  return <Input type='text' onChange={handleChange} {...props} />;
+  return <StyledInput type='text' onChange={handleChange} {...props} />;
 }

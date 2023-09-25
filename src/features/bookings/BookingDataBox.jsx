@@ -68,6 +68,30 @@ const Guest = styled.div`
   }
 `;
 
+const CheckedIn = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem 3.2rem;
+  border-radius: var(--border-radius-sm);
+  margin-top: 2.4rem;
+
+  background-color: var(--color-green-100);
+  color: var(--color-green-700);
+
+  & p:last-child {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  svg {
+    height: 2.4rem;
+    width: 2.4rem;
+    color: currentColor !important;
+  }
+`;
+
 const Price = styled.div`
   display: flex;
   align-items: center;
@@ -115,6 +139,7 @@ function BookingDataBox({ booking }) {
     hasBreakfast,
     observations,
     isPaid,
+    status,
     guests: { fullName: guestName, email, country, countryFlag, nationalID },
     cabins: { name: cabinName },
   } = booking;
@@ -153,13 +178,13 @@ function BookingDataBox({ booking }) {
         {observations && (
           <DataItem
             icon={<HiOutlineChatBubbleBottomCenterText />}
-            label="Observations"
+            label='Observations'
           >
             {observations}
           </DataItem>
         )}
 
-        <DataItem icon={<HiOutlineCheckCircle />} label="Breakfast included?">
+        <DataItem icon={<HiOutlineCheckCircle />} label='Breakfast included?'>
           {hasBreakfast ? "Yes" : "No"}
         </DataItem>
 
@@ -175,6 +200,14 @@ function BookingDataBox({ booking }) {
 
           <p>{isPaid ? "Paid" : "Will pay at property"}</p>
         </Price>
+
+        {status !== "unconfirmed" && (
+          <CheckedIn>
+            <DataItem icon={<HiOutlineCheckCircle />} label={status}>
+              This booking is {status}
+            </DataItem>
+          </CheckedIn>
+        )}
       </Section>
 
       <Footer>

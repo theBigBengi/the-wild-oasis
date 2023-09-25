@@ -2,12 +2,14 @@ import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import Spinner from "../../ui/Spinner";
-import useSettings from "./useSettings";
+import { useSettings } from "./useSettings";
 import useUpdateSetting from "./useUpdateSetting";
 
 function UpdateSettingsForm() {
   const { isLoading, settings } = useSettings();
   const { updateSetting, isUpdating } = useUpdateSetting();
+
+  if (isLoading) return <Spinner />;
 
   const {
     minBookingLength,
@@ -23,8 +25,6 @@ function UpdateSettingsForm() {
 
     updateSetting({ [field]: value });
   }
-
-  if (isLoading) return <Spinner />;
 
   return (
     <Form>

@@ -3,19 +3,29 @@ import { styled } from "styled-components";
 
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import { devices } from "../utils/constants";
 
 const StyledAppLayout = styled.div`
   display: grid;
-  grid-template-columns: 26rem 1fr;
-  grid-template-rows: auto 1fr;
   height: 100vh;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+
+  @media ${devices.laptop} {
+    grid-template-columns: 26rem 1fr;
+    grid-template-rows: auto 1fr;
+  }
 `;
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
-  padding: 4rem 4.8rem 6.4rem;
+  padding: 1rem 1rem 2.4rem;
   overflow: scroll;
   position: relative;
+
+  @media ${devices.laptop} {
+    padding: 4rem 4.8rem 6.4rem;
+  }
 `;
 
 const Container = styled.div`

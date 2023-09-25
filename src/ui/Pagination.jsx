@@ -41,6 +41,10 @@ const PaginationButton = styled.button`
   padding: 0.6rem 1.2rem;
   transition: all 0.3s;
 
+  &:disabled {
+    color: var(--color-brand-200);
+  }
+
   &:has(span:last-child) {
     padding-left: 0.4rem;
   }

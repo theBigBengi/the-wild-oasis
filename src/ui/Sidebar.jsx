@@ -1,10 +1,13 @@
 import { styled } from "styled-components";
+import MediaQuery from "react-responsive";
+
 import Logo from "./Logo";
 import MainNav from "./MainNav";
 import Uploader from "../data/Uploader";
+import { sizes } from "../utils/constants";
 
 const StyledSidebar = styled.header`
-  background-color: var(--color-gray-0);
+  background-color: var(--color-grey-0);
   padding: 3.2rem 2.4rem;
   border-right: 1px solid var(--color-grey-100);
 
@@ -16,11 +19,13 @@ const StyledSidebar = styled.header`
 
 export default function Sidebar() {
   return (
-    <StyledSidebar>
-      <Logo />
-      <MainNav />
+    <MediaQuery minWidth={sizes.laptop}>
+      <StyledSidebar>
+        <Logo />
+        <MainNav />
 
-      <Uploader />
-    </StyledSidebar>
+        <Uploader />
+      </StyledSidebar>
+    </MediaQuery>
   );
 }

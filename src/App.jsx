@@ -14,6 +14,10 @@ import PageNotFound from "./pages/PageNotFound";
 import AppLayout from "./ui/AppLayout";
 
 import GlobalStyles from "./styles/GlobalStyles";
+import Booking from "./pages/Booking";
+import Checkin from "./pages/Checkin";
+import ProtectedRoute from "./ui/ProtectedRoute";
+import { DarkModeProvider } from "./context/DarkModeContext";
 
 // Creating new query client for ReactQuery
 const queryClient = new QueryClient({
@@ -43,31 +47,41 @@ const toasterOptions = {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <ReactQueryDevtools initialIsOpen={false} />
-      <GlobalStyles />
-      <BrowserRouter>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route path='dashboard' element={<Dashboard />} />
-            <Route path='bookings' element={<Bookings />} />
-            <Route path='cabins' element={<Cabins />} />
-            <Route path='users' element={<Users />} />
-            <Route path='settings' element={<Settings />} />
-            <Route path='account' element={<Account />} />
-          </Route>
-          <Route path='login' element={<Login />} />
-          <Route path='*' element={<PageNotFound />} />
-        </Routes>
-      </BrowserRouter>
+    <DarkModeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
+        <GlobalStyles />
+        <BrowserRouter>
+          <Routes>
+            <Route
+              element={
+                <ProtectedRoute>
+                  <AppLayout />
+                </ProtectedRoute>
+              }
+            >
+              <Route path='dashboard' element={<Dashboard />} />
+              <Route path='bookings' element={<Bookings />} />
+              <Route path={"booking/:bookingId"} element={<Booking />} />
+              <Route path={"checkin/:bookingId"} element={<Checkin />} />
+              <Route path='cabins' element={<Cabins />} />
+              <Route path='users' element={<Users />} />
+              <Route path='settings' element={<Settings />} />
+              <Route path='account' element={<Account />} />
+            </Route>
+            <Route path='login' element={<Login />} />
+            <Route path='*' element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
 
-      <Toaster
-        containerStyle={{ margin: "8px" }}
-        toastOptions={toasterOptions}
-        position='top-center'
-        gutter={12}
-      />
-    </QueryClientProvider>
+        <Toaster
+          containerStyle={{ margin: "8px" }}
+          toastOptions={toasterOptions}
+          position='top-center'
+          gutter={12}
+        />
+      </QueryClientProvider>
+    </DarkModeProvider>
   );
 }
 

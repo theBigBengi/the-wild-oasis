@@ -6,7 +6,7 @@ import Search from "../../ui/Search";
 function BookingTableOperations() {
   return (
     <TableOperations>
-      <Search filterField='guest' />
+      <Search filterField='guest' placeholder='Search by guest name' />
 
       <Filter
         filterField='status'
