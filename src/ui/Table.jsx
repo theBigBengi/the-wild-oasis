@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { devices } from "../utils/constants";
 
 const StyledTable = styled.div`
-  border: 1px solid var(--color-grey-200);
+  border: 1px solid var(--color-grey-300);
 
   font-size: 1.1rem;
   background-color: var(--color-grey-0);
@@ -26,8 +26,8 @@ const CommonRow = styled.div`
 const StyledHeader = styled(CommonRow)`
   padding: 1.6rem 2.4rem;
 
-  background-color: var(--color-grey-50);
-  border-bottom: 1px solid var(--color-grey-100);
+  background-color: var(--color-grey-0);
+  border-bottom: 1px solid var(--color-grey-300);
   text-transform: uppercase;
   letter-spacing: 0.4px;
   font-weight: 600;
@@ -47,7 +47,8 @@ const StyledBody = styled.section`
 `;
 
 const Footer = styled.footer`
-  background-color: var(--color-grey-50);
+  background-color: var(--color-grey-0);
+  border-top: 1px solid var(--color-grey-300);
   display: flex;
   justify-content: center;
   padding: 1.2rem;

@@ -12,9 +12,9 @@ const ButtonIcon = styled.button`
   }
 
   & svg {
-    width: 2.2rem;
-    height: 2.2rem;
-    color: var(--color-brand-600);
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--color-grey-900);
   }
 `;
 

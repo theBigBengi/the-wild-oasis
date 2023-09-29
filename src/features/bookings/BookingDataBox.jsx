@@ -15,21 +15,22 @@ import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers";
 const StyledBookingDataBox = styled.section`
   /* Box */
   background-color: var(--color-grey-0);
-  border: 1px solid var(--color-grey-100);
+  border: 1px solid var(--color-grey-300);
   border-radius: var(--border-radius-md);
 
   overflow: hidden;
 `;
 
 const Header = styled.header`
-  background-color: var(--color-brand-500);
+  background-color: var(--color-grey-0);
   padding: 2rem 4rem;
-  color: #e0e7ff;
+  color: var(--color-grey-600);
   font-size: 1.8rem;
   font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 1px solid var(--color-grey-300);
 
   svg {
     height: 3.2rem;
@@ -101,7 +102,9 @@ const Price = styled.div`
   margin-top: 2.4rem;
 
   background-color: ${(props) =>
-    props.isPaid ? "var(--color-green-100)" : "var(--color-yellow-100)"};
+    props.isPaid
+      ? "rgba(var(--color-green-100), 0.30)"
+      : "rgba(var(--color-yellow-100), 0.30)"};
   color: ${(props) =>
     props.isPaid ? "var(--color-green-700)" : "var(--color-yellow-700)"};
 
@@ -201,13 +204,13 @@ function BookingDataBox({ booking }) {
           <p>{isPaid ? "Paid" : "Will pay at property"}</p>
         </Price>
 
-        {status !== "unconfirmed" && (
+        {/* {status !== "unconfirmed" && (
           <CheckedIn>
             <DataItem icon={<HiOutlineCheckCircle />} label={status}>
               This booking is {status}
             </DataItem>
           </CheckedIn>
-        )}
+        )} */}
       </Section>
 
       <Footer>

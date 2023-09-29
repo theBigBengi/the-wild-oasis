@@ -5,9 +5,10 @@ import Menus from "../../ui/Menus";
 import Empty from "../../ui/Empty";
 
 import { useCabins } from "./useCabins";
+import Pagination from "../../ui/Pagination";
 
 function CabinTable() {
-  const { isLoading, cabins } = useCabins();
+  const { isLoading, cabins, count } = useCabins();
 
   if (isLoading) return <Spinner />;
 
@@ -29,6 +30,10 @@ function CabinTable() {
           render={(cabin) => <CabinRow cabin={cabin} key={cabin.id} />}
           data={cabins}
         />
+
+        <Table.Footer>
+          <Pagination count={count} perPage={count} />
+        </Table.Footer>
       </Table>
     </Menus>
   );

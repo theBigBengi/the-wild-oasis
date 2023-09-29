@@ -1,14 +1,16 @@
 import supabase, { supabaseUrl } from "./supabase";
 
 export async function getCabins() {
-  let { data, error } = await supabase.from("cabins").select("*");
+  let { data, error, count } = await supabase
+    .from("cabins")
+    .select("*", { count: "exact" });
 
   if (error) {
     console.log(error);
     throw new Error("Cabins could not be load");
   }
 
-  return data;
+  return { data, count };
 }
 
 export async function createEditCabin(newCabin, id) {

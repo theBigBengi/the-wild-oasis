@@ -31,13 +31,17 @@ const StyledToggle = styled.button`
 
 const StyledList = styled.ul`
   position: fixed;
-
   background-color: var(--color-grey-0);
   box-shadow: var(--shadow-md);
   border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-grey-300);
 
   right: ${(props) => props.$position.x}px;
   top: ${(props) => props.$position.y}px;
+
+  & li:not(:last-child) {
+    border-bottom: 1px solid var(--color-grey-50);
+  }
 `;
 
 const StyledButton = styled.button`
@@ -45,7 +49,7 @@ const StyledButton = styled.button`
   text-align: left;
   background: none;
   border: none;
-  padding: 1.2rem 2.4rem;
+  padding: 1.6rem 2.4rem;
   font-size: 1.4rem;
   transition: all 0.2s;
 
@@ -87,6 +91,7 @@ function Toggle({ id }) {
   const { openId, close, open, setPosition } = useContext(MenusContext);
 
   function handleClick(e) {
+    e.stopPropagation();
     const rect = e.target.closest("button").getBoundingClientRect();
     setPosition({
       x: window.innerWidth - rect.width - rect.x,
@@ -105,7 +110,7 @@ function Toggle({ id }) {
 
 function List({ id, children }) {
   const { openId, position, close } = useContext(MenusContext);
-  const ref = useOutsideClick(close);
+  const ref = useOutsideClick(close, false);
 
   if (openId !== id) return null;
 
@@ -117,7 +122,7 @@ function List({ id, children }) {
   );
 }
 
-function Button({ children, icon, onClick }) {
+function Button({ children, icon, onClick, ...props }) {
   const { close } = useContext(MenusContext);
 
   function handleClick() {
@@ -127,7 +132,7 @@ function Button({ children, icon, onClick }) {
 
   return (
     <li>
-      <StyledButton onClick={handleClick}>
+      <StyledButton onClick={handleClick} {...props}>
         {icon}
         <span>{children}</span>
       </StyledButton>

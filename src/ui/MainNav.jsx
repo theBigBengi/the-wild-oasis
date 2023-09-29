@@ -49,7 +49,7 @@ const Link = styled(NavLink)`
   &:active svg,
   &.active:link svg,
   &.active:visited svg {
-    color: var(--color-brand-600);
+    color: var(--color-grey-900);
   }
 `;
 

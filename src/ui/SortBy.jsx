@@ -11,12 +11,7 @@ function SortBy({ options }) {
   }
 
   return (
-    <Select
-      onChange={handleChange}
-      value={currentSortBy}
-      options={options}
-      type='white'
-    />
+    <Select onChange={handleChange} value={currentSortBy} options={options} />
   );
 }
 

@@ -22,24 +22,35 @@ const sizes = {
 
 const variations = {
   primary: css`
-    color: var(--color-brand-50);
-    background-color: var(--color-brand-600);
+    color: var(--color-grey-50);
+    border: 1px solid var(--color-grey-600);
+    background-color: var(--color-grey-600);
 
     &:hover {
-      background-color: var(--color-brand-700);
+      color: var(--color-grey-0);
+      background-color: var(--color-grey-900);
+    }
+
+    &:disabled {
+      color: var(--color-grey-400);
+      border: 1px solid var(--color-grey-400);
+      background-color: var(--color-grey-200);
     }
   `,
   secondary: css`
-    color: var(--color-grey-600);
-    background: var(--color-grey-0);
-    border: 1px solid var(--color-grey-200);
+    color: var(--color-grey-500);
+    background: transparent;
+    border: 1px solid var(--color-grey-300);
 
     &:hover {
+      color: var(--color-grey-700);
+      border: 1px solid var(--color-grey-400);
       background-color: var(--color-grey-50);
     }
   `,
   danger: css`
-    color: var(--color-red-100);
+    color: var(--color-grey-900);
+    border: 1px solid var(--color-red-700);
     background-color: var(--color-red-700);
 
     &:hover {

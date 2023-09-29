@@ -2,6 +2,10 @@ import { useMediaQuery } from "react-responsive";
 import { devices } from "../utils/constants";
 
 export function useResponsive() {
+  const isLaptopL = useMediaQuery({
+    minWidth: 1440,
+  });
+
   const isLaptop = useMediaQuery({
     minWidth: 1024,
   });
@@ -17,6 +21,7 @@ export function useResponsive() {
 
   return {
     isLaptop,
+    isLaptopL,
     isMobile,
     isTablet,
   };

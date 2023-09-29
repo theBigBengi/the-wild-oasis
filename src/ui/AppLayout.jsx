@@ -11,7 +11,7 @@ const StyledAppLayout = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr;
 
-  @media ${devices.laptop} {
+  @media ${devices.laptopL} {
     grid-template-columns: 26rem 1fr;
     grid-template-rows: auto 1fr;
   }
@@ -19,11 +19,11 @@ const StyledAppLayout = styled.div`
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
-  padding: 1rem 1rem 2.4rem;
+  padding: 4rem 2rem 2.4rem;
   overflow: scroll;
   position: relative;
 
-  @media ${devices.laptop} {
+  @media ${devices.laptopL} {
     padding: 4rem 4.8rem 6.4rem;
   }
 `;

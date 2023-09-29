@@ -3,6 +3,18 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyles = createGlobalStyle`
 :root {
   &, &.light-mode {
+
+         /* Indigo */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #f5e325;
+  --color-brand-700: #4338ca;
+  --color-brand-800: #3730a3;
+  --color-brand-900: #312e81;
+   
+
   /* Grey */
   --color-grey-0: #fff;
   --color-grey-50: #f9fafb;
@@ -16,19 +28,19 @@ const GlobalStyles = createGlobalStyle`
   --color-grey-800: #1f2937;
   --color-grey-900: #111827;
 
-  --color-blue-100: #e0f2fe;
-  --color-blue-700: #0369a1;
-  --color-green-100: #dcfce7;
-  --color-green-700: #15803d;
-  --color-yellow-100: #fef9c3;
-  --color-yellow-700: #a16207;
-  --color-silver-100: #e5e7eb;
+  --color-blue-100: 48, 171, 252;
+--color-blue-700: #0099ff;
+  --color-green-100: 133, 255, 175;
+  --color-green-700: #02b03d;
+  --color-yellow-100: 243, 250, 112;
+  --color-yellow-700: #8c8800;
+  --color-silver-100: 181, 181, 181;
   --color-silver-700: #374151;
   --color-indigo-100: #e0e7ff;
   --color-indigo-700: #4338ca;
 
   --color-red-100: #fee2e2;
-  --color-red-700: #b91c1c;
+  --color-red-700: #f52548;
   --color-red-800: #991b1b;
 
   --backdrop-color: rgba(255, 255, 255, 0.1);
@@ -43,8 +55,18 @@ const GlobalStyles = createGlobalStyle`
   }
   
   &.dark-mode {
-    --color-grey-0: #18212f;
---color-grey-50: #111827;
+         /* Indigo */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c7d2fe;
+  --color-brand-500: #6366f1;
+  --color-brand-600: #e5e7eb;
+  --color-brand-700: #c3c4c7;
+  --color-brand-800: #000;
+  --color-brand-900: #312e81;
+
+--color-grey-0: #000;
+--color-grey-50: #1f1f1f;
 --color-grey-100: #1f2937;
 --color-grey-200: #374151;
 --color-grey-300: #4b5563;
@@ -55,19 +77,19 @@ const GlobalStyles = createGlobalStyle`
 --color-grey-800: #f3f4f6;
 --color-grey-900: #f9fafb;
 
---color-blue-100: #075985;
---color-blue-700: #e0f2fe;
---color-green-100: #166534;
---color-green-700: #dcfce7;
---color-yellow-100: #854d0e;
---color-yellow-700: #fef9c3;
---color-silver-100: #374151;
+--color-blue-100: 48, 171, 252;
+--color-blue-700: #0099ff;
+--color-green-100: 133, 255, 175;
+--color-green-700: #07f258;
+--color-yellow-100: 243, 250, 112;
+--color-yellow-700: #fcf319;
+--color-silver-100: 243, 244, 246;
 --color-silver-700: #f3f4f6;
 --color-indigo-100: #3730a3;
 --color-indigo-700: #e0e7ff;
 
 --color-red-100: #fee2e2;
---color-red-700: #b91c1c;
+--color-red-700: #f52548;
 --color-red-800: #991b1b;
 
 --backdrop-color: rgba(0, 0, 0, 0.3);
@@ -80,15 +102,7 @@ const GlobalStyles = createGlobalStyle`
 --image-opacity: 90%;
   }
   
-  /* Indigo */
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-200: #c7d2fe;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
-  --color-brand-800: #3730a3;
-  --color-brand-900: #312e81;
+
   
   --border-radius-tiny: 3px;
   --border-radius-sm: 5px;
@@ -149,7 +163,7 @@ input:focus,
 button:focus,
 textarea:focus,
 select:focus {
-  outline: 2px solid var(--color-brand-600);
+  outline: 2px solid var(--color-grey-600);
   outline-offset: -1px;
 }
 

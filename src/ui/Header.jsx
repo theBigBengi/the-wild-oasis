@@ -1,21 +1,26 @@
 import styled from "styled-components";
+import { HiBars3 } from "react-icons/hi2";
+
 import HeaderMenu from "./HeaderMenu";
 import UserAvatar from "../features/authentication/UserAvatar";
-import { HiBars3 } from "react-icons/hi2";
-import MediaQuery from "react-responsive";
-import { sizes } from "../utils/constants";
 import { useResponsive } from "../hooks/useResponsive";
-import ToggleDarkMode from "./ToggleDarkMode";
+import ButtonIcon from "./ButtonIcon";
+import { devices } from "../utils/constants";
+import Logo from "./Logo";
 
 const StyledHeader = styled.header`
   background-color: var(--color-grey-0);
   padding: 1.2rem 4.8rem;
-  border-bottom: 1px solid var(--color-grey-100);
+  border-bottom: 1px solid var(--color-grey-300);
 
   display: flex;
   gap: 2.4rem;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+
+  @media ${devices.laptop} {
+    justify-content: flex-end;
+  }
 `;
 
 function Header() {
@@ -29,7 +34,12 @@ function Header() {
           <HeaderMenu />
         </>
       ) : (
-        <HiBars3 />
+        <>
+          <Logo height='5rem' withText={false} />
+          <ButtonIcon>
+            <HiBars3 />
+          </ButtonIcon>
+        </>
       )}
     </StyledHeader>
   );

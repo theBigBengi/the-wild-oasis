@@ -7,7 +7,7 @@ export function useCabins() {
 
   const {
     isLoading,
-    data: cabins,
+    data: { data: cabins, count } = {},
     error,
   } = useQuery({
     queryKey: ["cabins"],
@@ -33,5 +33,5 @@ export function useCabins() {
     (a, b) => (a[field] - b[field]) * modifier
   );
 
-  return { isLoading, error, cabins: sortedCabins };
+  return { isLoading, error, cabins: sortedCabins, count };
 }

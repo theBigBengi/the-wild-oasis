@@ -57,27 +57,17 @@ function BookingDetail() {
       <BookingDataBox booking={booking} />
 
       <ButtonGroup>
-        {status === "unconfirmed" && (
-          <Button onClick={() => navigate(`/checkin/${bookingId}`)}>
-            Check in
-          </Button>
-        )}
-
-        {status === "checked-in" && (
-          <Button
-            icon={<HiArrowUpOnSquare />}
-            onClick={() => checkout(bookingId)}
-            disabled={isCheckingOut}
-          >
-            Check out
-          </Button>
-        )}
+        <Button variation='secondary' onClick={moveBack}>
+          Back
+        </Button>
 
         <Modal>
           <Modal.Open
             opens='delete'
             renderItem={(openModal) => (
-              <Button onClick={openModal}>Delete booking</Button>
+              <Button variation='danger' onClick={openModal}>
+                Delete booking
+              </Button>
             )}
           />
 
@@ -98,9 +88,21 @@ function BookingDetail() {
           />
         </Modal>
 
-        <Button variation='secondary' onClick={moveBack}>
-          Back
-        </Button>
+        {status === "unconfirmed" && (
+          <Button onClick={() => navigate(`/checkin/${bookingId}`)}>
+            Check in
+          </Button>
+        )}
+
+        {status === "checked-in" && (
+          <Button
+            icon={<HiArrowUpOnSquare />}
+            onClick={() => checkout(bookingId)}
+            disabled={isCheckingOut}
+          >
+            Check out
+          </Button>
+        )}
       </ButtonGroup>
     </>
   );

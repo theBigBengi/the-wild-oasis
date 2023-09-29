@@ -27,8 +27,9 @@ const Buttons = styled.div`
 
 const PaginationButton = styled.button`
   background-color: ${(props) =>
-    props.active ? " var(--color-brand-600)" : "var(--color-grey-50)"};
-  color: ${(props) => (props.active ? " var(--color-brand-50)" : "inherit")};
+    props.active ? " var(--color-brand-600)" : "var(--color-grey-0)"};
+  color: ${(props) =>
+    props.active ? " var(--color-brand-50)" : "var(--color-grey-600)"};
   border: none;
   border-radius: var(--border-radius-sm);
   font-weight: 500;
@@ -42,7 +43,7 @@ const PaginationButton = styled.button`
   transition: all 0.3s;
 
   &:disabled {
-    color: var(--color-brand-200);
+    color: var(--color-grey-400);
   }
 
   &:has(span:last-child) {
@@ -59,8 +60,8 @@ const PaginationButton = styled.button`
   }
 
   &:hover:not(:disabled) {
-    background-color: var(--color-brand-600);
-    color: var(--color-brand-50);
+    /* background-color: var(--color-brand-700); */
+    color: var(--color-grey-900);
   }
 `;
 

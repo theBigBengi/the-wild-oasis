@@ -76,7 +76,14 @@ function CabinRow({ cabin }) {
 
   return (
     <Table.Row>
-      <Img src={image} />
+      <Menus.Menu>
+        <Menus.Toggle id={"bookingId"} />
+        <Menus.List id={"bookingId"}>
+          <Menus.Button>See details</Menus.Button>
+        </Menus.List>
+      </Menus.Menu>
+
+      {/* <Img src={image} /> */}
       <Cabin>{name}</Cabin>
       <div>Fits up to {maxCapacity} guests</div>
       <Price>{formatCurrency(regularPrice)}</Price>
