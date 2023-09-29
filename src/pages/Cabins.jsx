@@ -9,7 +9,7 @@ import AddCabin from "../features/cabins/AddCabin";
 function Cabins() {
   return (
     <>
-      <Row type='horizontal'>
+      <Row wrap='true' type='horizontal'>
         <Heading as='h1'> cabins</Heading>
         <CabinTableOperations />
       </Row>

@@ -7,6 +7,7 @@ import Modal from "./Modal";
 const StyledTableOperations = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1.6rem;
 `;
 

@@ -76,14 +76,7 @@ function CabinRow({ cabin }) {
 
   return (
     <Table.Row>
-      <Menus.Menu>
-        <Menus.Toggle id={"bookingId"} />
-        <Menus.List id={"bookingId"}>
-          <Menus.Button>See details</Menus.Button>
-        </Menus.List>
-      </Menus.Menu>
-
-      {/* <Img src={image} /> */}
+      <Img src={image} />
       <Cabin>{name}</Cabin>
       <div>Fits up to {maxCapacity} guests</div>
       <Price>{formatCurrency(regularPrice)}</Price>
@@ -98,7 +91,11 @@ function CabinRow({ cabin }) {
             <Menus.Toggle id={cabinId} />
 
             <Menus.List id={cabinId}>
-              <Menus.Button icon={<HiSquare2Stack />} onClick={handleDuplicate}>
+              <Menus.Button
+                icon={<HiSquare2Stack />}
+                onClick={handleDuplicate}
+                disabled={isCreating}
+              >
                 Duplicate
               </Menus.Button>
 
